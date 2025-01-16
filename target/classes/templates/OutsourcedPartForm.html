@@ -1,0 +1,26 @@
+<section th:fragment="content">
+    <h1>Outsourced Part Form</h1>
+
+    <form action="#" th:action="@{/form/outsourced-part}" th:object="${outsourcedpart}" method="POST" }>
+
+        <p><input type="hidden" th:field="*{id}" required/></p>
+
+        <p><input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4" required/></p>
+
+        <p><input type="text" th:field="*{price}" placeholder="Price" class="form-control mb-4 col-4"/></p>
+        <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</p>
+
+        <p><input type="text" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4"/></p>
+        <p th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}">Inventory Error</p>
+
+        <p><input type="text" th:field="*{invMin}" placeholder="Inventory Min" class="form-control mb-4 col-4"/></p>
+        <p th:if="${#fields.hasErrors('invMin')}" th:errors="*{invMin}">Inventory Error</p>
+
+        <p><input type="text" th:field="*{invMax}" placeholder="Inventory Max" class="form-control mb-4 col-4"/></p>
+        <p th:if="${#fields.hasErrors('invMax')}" th:errors="*{invMax}">Inventory Error</p>
+
+        <p><input type="text" th:field="*{companyName}" placeholder="Company Name" class="form-control mb-4 col-4"/></p>
+
+        <p class="flex"><input type="submit" value="Submit" class="mx-auto standard-button no-underline"/></p>
+    </form>
+</section>

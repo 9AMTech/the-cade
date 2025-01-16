@@ -1,0 +1,11 @@
+<section th:fragment="content" class="flex flex-col">
+    <h1>Your part has been deleted</h1>
+    <section class="mb-14">
+        <h2 id="redirect-message"></h2>
+    </section>
+
+    <a th:href="@{/mainscreen}" class="self-center mt-14 standard-button no-underline">Link
+        to Home</a>
+
+    <script th:src="@{/js/redirect.js}"></script>
+</section>

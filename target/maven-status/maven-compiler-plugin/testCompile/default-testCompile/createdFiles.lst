@@ -1,0 +1,7 @@
+com\example\demo\domain\InhousePartTest.class
+com\example\demo\DemoApplicationTests.class
+com\example\demo\service\InhousePartServiceTest.class
+com\example\demo\repositories\InhousePartRepositoryTest.class
+com\example\demo\domain\ProductTest.class
+com\example\demo\domain\PartTest.class
+com\example\demo\domain\OutsourcedPartTest.class

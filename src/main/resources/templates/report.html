@@ -1,0 +1,50 @@
+<section th:fragment="content">
+    <h1 class="text-center">Sales Report</h1>
+    <div class="flex justify-content-between">
+        <section>
+            <form id="selectTimeframe" th:action="@{/report/purchases}" class="text-center">
+                <label for="timeframe" class="font-semibold">Select Time Frame:</label>
+                <select id="timeframe" name="timeframe">
+                    <option value="7" th:selected="${timeframe == 7}">This Week</option>
+                    <option value="14" th:selected="${timeframe == 14}">Last 2 Weeks</option>
+                    <option value="30" th:selected="${timeframe == 30}">Last Month</option>
+                    <option value="60" th:selected="${timeframe == 60}">Last 2 Months</option>
+                    <option value="180" th:selected="${timeframe == 180}">Last 6 Months</option>
+                    <option value="365" th:selected="${timeframe == 365}">Last Year</option>
+                </select>
+                <input type="submit" class="standard-button no-underline bg-green-300"/>
+            </form>
+        </section>
+        <section>
+            <sectoin>
+                <button id="downloadCsv" class="standard-button no-underline" value="Download">Download</button>
+            </sectoin>
+        </section>
+    </div>
+    <section>
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="thead-dark">
+            <tr>
+                <th class="text-center">Purchase ID</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Sale Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="purchase : ${purchases}">
+                <td th:text="${purchase[0]}">1</td>
+                <td th:text="${purchase[1]}">1</td>
+                <td th:text="${purchase[2]}" class="currency">1</td>
+                <td th:text="${purchase[3]}">1</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <div id="toast" class="hidden">
+        <span id="toastMessage">Download successful!</span>
+    </div>
+    <script th:src="@{/js/formatDollar.js}"></script>
+    <script th:src="@{/js/generateReport.js}"></script>
+
+</section>

@@ -1,0 +1,29 @@
+<section th:fragment="content">
+
+    <h1>Inhouse Part Form</h1>
+    <form action="#" th:action="@{/form/inhouse-part}" th:object="${inhousepart}" method="POST" }>
+
+
+        <p><input type="hidden" th:field="*{id}" required/></p>
+        <!--        <p><input type="hidden" th:field="*{partId}" placeholder="Part ID" class="form-control mb-4 col-4"/></p>-->
+
+        <p><input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4" required/></p>
+
+        <p><input type="text" path="price" th:field="*{price}" placeholder="Price" class="form-control mb-4 col-4"/></p>
+        <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</p>
+
+        <p><input type="text" path="inv" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4"/></p>
+        <p th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}">Inventory Error</p>
+
+        <p><input type="text" path="inv" th:field="*{invMin}" placeholder="Inventory Min"
+                  class="form-control mb-4 col-4"/></p>
+        <p th:if="${#fields.hasErrors('invMin')}" th:errors="*{inv}">Inventory Error</p>
+
+        <p><input type="text" path="inv" th:field="*{invMax}" placeholder="Inventory Max"
+                  class="form-control mb-4 col-4"/></p>
+        <p th:if="${#fields.hasErrors('invMax')}" th:errors="*{inv}">Inventory Error</p>
+
+
+        <p class="flex"><input type="submit" value="Submit" class="mx-auto standard-button no-underline"/></p>
+    </form>
+</section>

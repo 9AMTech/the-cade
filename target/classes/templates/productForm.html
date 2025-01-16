@@ -1,0 +1,63 @@
+
+<section th:fragment="content">
+<h1>Product Detail</h1>
+<form action="#" th:action="@{/form/product}" th:object="${product}" method="POST"}>
+    <p><input type="hidden" th:field="*{id}"/></p>
+
+    <p><input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4"/></p>
+
+    <p><input type="text" th:field="*{price}" placeholder= "Price" class="form-control mb-4 col-4"/></p>
+
+
+    <p><input type="text" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4"/></p>
+
+    <p>
+    <div th:if="${#fields.hasAnyErrors()}">
+    <ul><li th:each="err: ${#fields.allErrors()}" th:text="${err}"></li></ul>
+    </div>
+    </p>
+    <p class="flex"><input type="submit" value="Submit" class="mx-auto standard-button no-underline"/></p>
+</form>
+
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <h2>Available Parts</h2>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Inventory</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <form>
+    <tr th:each="tempPart : ${availparts}">
+        <td th:text="${tempPart.name}">1</td>
+        <td th:text="${tempPart.price}">1</td>
+        <td th:text="${tempPart.inv}">1</td>
+        <td><a th:href="@{/form/associate-part(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3">Add</a>
+        </td>
+    </tr>
+    </form>
+</table>
+    <table class="table table-bordered table-striped">
+        <h2>Associated Parts</h2>
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Inventory</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tempPart : ${assparts}">
+            <td th:text="${tempPart.name}">1</td>
+            <td th:text="${tempPart.price}">1</td>
+            <td th:text="${tempPart.inv}">1</td>
+            <td><a th:href="@{/form/remove-part(partID=${tempPart.id})}"  class="btn btn-primary btn-sm mb-3">Remove</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
