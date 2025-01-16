@@ -3,7 +3,7 @@ The Cade is a fullstack application made using Java and Spring, containerized wi
 
 **Link to project:** https://d424-capstone.nicebay-118f9d78.eastus.azurecontainerapps.io/mainscreen <br>
 
-![Thumbnail for the The Cade Website.](https://github.com/9AMTech/the-cade/blob/master/thumbnail.png)
+![Thumbnail for the The Cade Website.](https://github.com/9AMTech/the-cade/blob/main/thumbnail.png)
 
 ## How It's Made:
 
